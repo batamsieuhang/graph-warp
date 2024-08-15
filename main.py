@@ -1,8 +1,12 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from sys import argv
 
 # Read the data from the TSV file
-data = pd.read_csv("result.csv", delimiter='\t')
+
+file_name = argv[1]
+
+data = pd.read_csv(file_name, delimiter='\t')
 
 # Convert 'start' column to datetime and remove timezone info
 data['start'] = pd.to_datetime(data['start']).dt.tz_localize(None)
